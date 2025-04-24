@@ -25,7 +25,7 @@ try {
     Reviews.insertMany(reviews_data.reviews);
   });
   Dealerships.deleteMany({}).then(()=>{
-    Dealerships.insertMany(dealerships_data.dealership);
+    Dealerships.insertMany(dealerships_data.dealerships);
   });
   } catch (e) {
   res.status(500).json({ error: 'Error fetching documents' });
@@ -101,7 +101,7 @@ app.post('/insert_review', express.raw({ type: '*/*' }), async (req, res) => {
 		"review": data.review,
 		"purchase": data.purchase,
 		"purchase_date": data.purchase_date,
-		"car_make": data.carmake,
+		"car_make": data.car_make,
 		"car_model": data.car_model,
 		"car_year": data.car_year,
 	});
