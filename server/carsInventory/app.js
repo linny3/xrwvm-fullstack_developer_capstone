@@ -1,4 +1,5 @@
 /*jshint esversion: 10 */
+
 const express = require('express');
 const mongoose = require('mongoose');
 const fs = require('fs');
@@ -7,9 +8,9 @@ const app = express();
 const port = 3050;
 
 app.use(cors());
-app.use(require('body-parser').urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 
-const car_records_data = JSON.parse(fs.readFileSync("car_records.json", 'utf8'));
+const carsData = JSON.parse(fs.readFileSync("car_records.json", 'utf8'));
 mongoose.connect("mongodb://mongo_db:27017/",{'dbName':'dealershipsDB'});
 
 const Cars = require('./inventory');
