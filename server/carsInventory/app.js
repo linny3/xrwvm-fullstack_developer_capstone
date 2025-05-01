@@ -46,7 +46,7 @@ app.get('/carsbymake/:id/:make', async (req, res) => {
     }
 });
 
-app.get('/carsbymake/:id/:model', async (req, res) => {
+app.get('/carsbymodel/:id/:model', async (req, res) => {
     try {
         const documents = await Cars.find({dealer_id: req.params.id, model: req.params.model});
         res.json(documents)
@@ -80,7 +80,7 @@ app.get('/carsbymaxmileage/:id/:mileage', async (req, res) => {
 
 app.get('/carsbyprice/:id/:price', async (req, res) => {
     const price = req.params.price
-    const cost_query = {}
+    let cost_query = {}
     if(price <= 20000) {
         cost_query = { $lte: 20000 }
     } else if(price > 20000 || price <= 40000) {
@@ -101,7 +101,7 @@ app.get('/carsbyprice/:id/:price', async (req, res) => {
     }
 });
 
-app.get('/carsbymake/:id/:year', async (req, res) => {
+app.get('/carsbyyear/:id/:year', async (req, res) => {
     try {
         const documents = await Cars.find({dealer_id: req.params.id, year: req.params.year})
         res.json(documents)
