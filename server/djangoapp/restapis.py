@@ -32,6 +32,7 @@ def get_request(endpoint, **kwargs):
         # If any error occurs
         print(f"Error {e}")
 
+
 def searchcars_request(endpoint, **kwargs):
     params = ""
     if (kwargs):
@@ -46,6 +47,7 @@ def searchcars_request(endpoint, **kwargs):
         return response.json()
     except Exception as e:
         print(f"Error {e}")
+
 
 def analyze_review_sentiments(text):
     request_url = sentiment_analyzer_url+"analyze/"+text
@@ -66,7 +68,4 @@ def post_review(data_dict):
         return response.json()
     except Exception as e:
         print(f"Error: {e}")
-
-
-
 
